@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        td,
+        th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        th {
+            background-color: #04AA6D;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <table id="myTable">
+    </table>
+    <script>
+        addRow('Dag', 'Time', 'Minutt', 'Temperatur', 'th');
+        addRow(1, 10, 0, 5);
+        addRow(1, 10, 15, 6);
+        addRow(1, 10, 30, 7);
+
+        function addRow(value1, value2, value3, value4, tagName) {
+            if (tagName == undefined) {
+                tagName = 'td';
+            }
+            document.getElementById('myTable').innerHTML += /*HTML*/`  
+                <tr>          
+                    <${tagName}>${value1}</${tagName}>
+                    <${tagName}>${value2}</${tagName}>
+                    <${tagName}>${value3}</${tagName}>
+                    <${tagName}>${value4}</${tagName}>
+                </tr>
+            `;
+        }
+
+        function addRowB(value1, value2, value3, value4, tagName) {
+            if (tagName == undefined) {
+                tagName = 'td';
+            }
+            document.getElementById('myTable').innerHTML += /*HTML*/`  
+                <tr>          
+                    ${createTableCell(tagName, value1)}
+                    ${createTableCell(tagName, value2)}
+                    ${createTableCell(tagName, value3)}
+                    ${createTableCell(tagName, value4)}
+                </tr>
+            `;
+        }
+
+        function createTableCell(tagName, value){
+            return  /*HTML*/`<${tagName}>${value}</${tagName}>`;  
+        }
+    </script>
+</body>
+
+</html>
