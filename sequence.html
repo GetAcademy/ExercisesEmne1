@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li {
+            display: flex;
+            justify-content: space-between;
+            width: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="list">
+    </div>
+
+    <script>
+        showPerPålEspen();
+        function showPerPålEspen() {
+            document.getElementById('list').innerHTML = /*HTML*/`
+                <ol>
+                <li>
+                    <div>Per</div>
+                    <div>
+                        <button disabled>▲</button>
+                        <button>▼</button>
+                    </div>
+                </li>
+                <li>
+                    <div>Pål</div>
+                    <div>
+                        <button onclick="showPålPerEspen()">▲</button>
+                        <button>▼</button>
+                    </div>
+                </li>
+                <li>
+                    <div>Espen</div>
+                    <div>
+                        <button>▲</button>
+                        <button disabled>▼</button>
+                    </div>
+                </li>
+            </ol>
+            `;
+        }
+
+        function showPålPerEspen() {
+            document.getElementById('list').innerHTML = /*HTML*/`
+                <ol>
+                    <li>
+                        <div>Pål</div>
+                        <div>
+                            <button onclick="showPålPerEspen()">▲</button>
+                            <button>▼</button>
+                        </div>
+                    </li>
+                    <li>
+                        <div>Per</div>
+                        <div>
+                            <button disabled>▲</button>
+                            <button>▼</button>
+                        </div>
+                    </li>
+                    <li>
+                        <div>Espen</div>
+                        <div>
+                            <button>▲</button>
+                            <button disabled>▼</button>
+                        </div>
+                    </li>
+                </ol>
+            `;
+        }
+    </script>
+</body>
+
+</html>
